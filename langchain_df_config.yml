@@ -1,0 +1,3 @@
+general:
+   logging_level: "WARNING" # switch to control logging - WARNING for full logging; ERROR to minimize logging
+   data_file: 'AB_NYC_2019.csv'
