@@ -24,8 +24,8 @@ except Exception as e:
 df = pd.read_csv(config['general']['data_file'])
 
 # use standard pandas approach to answer the questions
-print("df.shape is ",df.shape)
-print("df[neighbourhood_group].value_counts() \n",df["neighbourhood_group"].value_counts())
+print("df.shape[0] \n",df.shape[0])
+print("df[df.neighbourhood_group == \"Manhattan\"].shape[0] \n",df[df.neighbourhood_group == "Manhattan"].shape[0])
 print("columns with missing values: \n",df.columns[df.isnull().any()])
 print("df[df.minimum_nights >= 30].shape[0] \n",df[df.minimum_nights >= 30].shape[0])
 print("df[df.minimum_nights == 30].shape[0] \n",df[df.minimum_nights == 30].shape[0])
