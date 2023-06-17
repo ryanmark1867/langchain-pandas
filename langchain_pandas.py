@@ -3,6 +3,7 @@
 import numpy as np
 import pandas as pd
 from langchain.llms import OpenAI
+from langchain.llms import VertexAI
 from langchain.agents import create_pandas_dataframe_agent
 import os
 import yaml
@@ -24,7 +25,8 @@ df = pd.read_csv(config['general']['data_file'])
 
 print("df.shape is ",df.shape)
 
-agent = create_pandas_dataframe_agent(OpenAI(temperature=0), df, verbose=True)
+llm = VertexAI()
+agent = create_pandas_dataframe_agent(llm, df, verbose=True)
 
 output1 = agent.run("how many rows are there?")
 
