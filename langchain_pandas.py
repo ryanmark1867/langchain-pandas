@@ -25,12 +25,15 @@ df = pd.read_csv(config['general']['data_file'])
 
 print("df.shape is ",df.shape)
 print("df[neighbourhood_group].value_counts() \n",df["neighbourhood_group"].value_counts())
+# df[df.last == 'smith'].shape[0]
+print("df[df.minimum_nights >= 30].shape[0] \n",df[df.minimum_nights >= 30].shape[0])
 
 llm = VertexAI()
 agent = create_pandas_dataframe_agent(llm, df, verbose=True)
 
 for question in config['questions']:
-    print(question,"\n",agent.run(question))  
+    print(question)
+    print(agent.run(question))  
 
 
 
